@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Real-Time Notification Broadcast Service
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##  Project Overview
+This project is a **Real-Time Notification Broadcast Service** that delivers instant notifications to all connected users using **Spring WebSocket** and a **React frontend**.
 
-## Available Scripts
+The backend supports real-time communication and can be easily deployed using **Docker containers**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+##  Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Real-time notification delivery using **WebSocket**
+- Multiple users can connect simultaneously
+- Broadcast messages to all connected clients
+- REST API for triggering notifications
+- Health check endpoint
+- Dockerized backend for easy deployment
+- React-based lightweight frontend UI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+##  Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
+- Java
+- Spring Framework / Spring Boot
+- WebSocket
+- REST API
 
-### `npm run build`
+### Frontend
+- React.js
+- HTML5
+- CSS3
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### DevOps
+- Docker
+- GitHub
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ How to Run the Project
 
-### `npm run eject`
+### 1️⃣ Clone Repository
+git clone <repository-url>
+cd notification-service
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2️⃣ Build Backend
+mvn clean package
+This will generate the **JAR file inside the target folder**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3️⃣ Run Backend using Docker
+Build Docker Image
+docker build -t notification-app .
+Run Container
+docker run -p 8080:8080 notification-app
+Backend will start at:
+http://localhost:8080
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4️⃣ Run Frontend
+Go to frontend folder
+cd notification-ui
+Install dependencies
+npm install
+Start React server
+npm start
+Frontend will run at:
+http://localhost:3000
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔔 WebSocket Endpoint
+ws://localhost:8080/ws
+Topic Subscription
+/topic/notifications
+---
 
-### Code Splitting
+## 🧪 Testing Notifications
+Notifications can be triggered using REST API.
+Example:
+POST http://localhost:8080/api/notify
+This will broadcast notifications to all connected users.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🐳 Docker Support
+The backend is containerized using Docker.
+Dockerfile includes:
+- OpenJDK base image
+- Application JAR
+- Port exposure
+- Entry point configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📈 Future Improvements
+- Redis Pub/Sub for multi-instance broadcast
+- Authentication & authorization
+- Notification persistence using MySQL
+- Kubernetes deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 👨‍💻 Author
+Mahendra Singh  
+Java Full Stack Developer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📂 Project Structure
