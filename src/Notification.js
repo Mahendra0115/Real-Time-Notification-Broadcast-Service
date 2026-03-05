@@ -27,7 +27,7 @@ const Notification = () => {
   return (
     <div className="container">
       <div className="card">
-        <h2>🔔 Real-Time Notifications</h2>
+        <h2> Real-Time Notifications</h2>
 
         {messages.length === 0 && (
           <div className="empty">No notifications yet</div>
